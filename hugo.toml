@@ -1,0 +1,3 @@
+[params.hugopress.modules.minimal-google-analytics.hooks.head-end]
+cacheable = true
+cache_param_key = "analyze"

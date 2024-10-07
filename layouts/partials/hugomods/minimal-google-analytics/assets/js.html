@@ -1,0 +1,12 @@
+{{- with site.Config.Services.GoogleAnalytics.ID }}
+  {{- $js := resources.Get "hugomods/minimal-google-analytics/js/index.js" }}
+  {{- $opts := dict
+    "targetPath" "js/minimal-google-analytics.js"
+    "minify" hugo.IsProduction
+  }}
+  {{- $js := $js | js.Build $opts }}
+  {{- if hugo.IsProduction }}
+    {{- $js = $js | fingerprint }}
+  {{- end }}
+  <script defer data-id="{{ . }}" src="{{ $js.RelPermalink }}"></script>
+{{- end }}
