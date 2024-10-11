@@ -1,0 +1,3 @@
+{{- if default true .Params.analyze }}
+  {{ partialCached "hugomods/minimal-google-analytics/assets/js" . }}
+{{- end }}
